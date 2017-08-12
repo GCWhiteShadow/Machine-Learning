@@ -157,9 +157,7 @@ with tf.Session() as sess:
 			#print(sess.run(y_pred, feed_dict={X: batch_xs}))
 		rs = sess.run(merged ,feed_dict={X:batch_xs})
 		writer.add_summary(rs, epoch)
-
 	print("Optimization Finished!")
-
 	# # Applying encode and decode over test set
 	encode_decode = sess.run(y_pred, feed_dict={X: test_data[:examples_to_show]})
 	# Compare original images with their reconstructions
@@ -193,4 +191,3 @@ for i in range(output.shape[0]):
 #print(result)
 df_result = pd.DataFrame(ans, columns=['ImageId', 'Label'])
 df_result.to_csv('MNIST_result.csv', index=False)
-
